@@ -1,0 +1,11 @@
+.table {
+    font-size: 15px;
+}
+
+.table thead th{
+    font-weight: bold;
+}
+
+.table .badge {
+    font-size: 13px;
+}

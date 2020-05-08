@@ -1,0 +1,73 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Detail_form_22_model extends CI_Model
+{
+    private $table = 'detail_form_22';
+    private $order = 'DESC';
+    public $id_form_22;
+    public $id_pernyataan;
+    public $pemantauan;
+    public $perbaikan_pemantauan;
+    public $waktu_pemantauan;
+
+    // Mendapatkan detail form 22
+    public function get_detail($id_form_8)
+    {
+        $this->db->order_by('detail_form_8.id_pernyataan', $this->order);
+        $this->db->join('detail_form_8', $this->table . '.id_pernyataan=detail_form_8.id_pernyataan', 'right');
+        return $this->db->get_where($this->table, ['detail_form_8.id_form_8' => $id_form_8])->result();
+    }
+
+    // Mendapatkan data berdasarkan id pernyataan
+    public function find($id_pernyataan)
+    {
+        $this->db->join('detail_form_8', $this->table . '.id_pernyataan=detail_form_8.id_pernyataan');
+        $this->db->join('detail_form_14', $this->table . '.id_pernyataan=detail_form_14.id_pernyataan');
+        $this->db->join('detail_form_17', $this->table . '.id_pernyataan=detail_form_17.id_pernyataan');
+        return $this->db->get_where($this->table, [$this->table . '.id_pernyataan' => $id_pernyataan])->row();
+    }
+
+    // Menambah data
+    public function save($post, $id_form_22 = NULL, $id_pernyataan = NULL)
+    {
+        $this->id_form_22 = $id_form_22;
+        $this->id_pernyataan = $id_pernyataan;
+        $this->pemantauan = $post['pemantauan'];
+        $this->perbaikan_pemantauan = $post['perbaikan_pemantauan'];
+        $this->waktu_pemantauan = $post['waktu_pemantauan'];
+        $this->db->insert($this->table, $this);
+    }
+
+    // Ubah data
+    public function update($put, $id_form_22 = NULL, $id_pernyataan = NULL)
+    {
+        $this->id_form_22 = $id_form_22;
+        $this->id_pernyataan = $id_pernyataan;
+        $this->pemantauan = $put['pemantauan'];
+        $this->perbaikan_pemantauan = $put['perbaikan_pemantauan'];
+        $this->waktu_pemantauan = $put['waktu_pemantauan'];
+        $this->db->update($this->table, $this, ['id_pernyataan' => $id_pernyataan]);
+    }
+
+    public function rules()
+    {
+        return [
+            [
+                'field' => 'pemantauan',
+                'label' => 'Pemantauan',
+                'rules' => 'trim|required'
+            ],
+            [
+                'field' => 'perbaikan_pemantauan',
+                'label' => 'Perbaikan Pemantauan',
+                'rules' => 'trim|required'
+            ],
+            [
+                'field' => 'waktu_pemantauan',
+                'label' => 'Waktu Pemantauan',
+                'rules' => 'trim|required'
+            ],
+        ];
+    }
+}
