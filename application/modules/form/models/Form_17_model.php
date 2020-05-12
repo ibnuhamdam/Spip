@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Form_17_model extends CI_Model
 {
     private $table = 'form_17';
-    private $order = 'DESC';
+    private $order = 'ASC';
     private $primary_key = 'id_form_17';
     public $id_form_17;
     public $id_form_8;

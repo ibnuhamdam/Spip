@@ -30,7 +30,10 @@
 
             <div class="col-md-6">
                 <div class="bg-white px-5 py-5" style="min-height: 500px;">
-                    <h5 class="ml-3" style="font-size:24px;">Total Role in %</h5>
+                    <h5 class="ml-3 mb-4" style="font-size:24px;">Total User in %</h5>
+                    <span class="mt-3"><i class="mdi mdi-checkbox-blank-circle" style="color:#28b779;font-size:16px;"></i> PPK </span>
+                    <br>
+                    <span class="mt-3"><i class="mdi mdi-checkbox-blank-circle" style="color:#7460ee;font-size:16px;"></i> User </span>
                     <div class="percent-chart">
                         <canvas id="percent-chart"></canvas>
                     </div>

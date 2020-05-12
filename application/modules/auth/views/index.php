@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/matriz1/'); ?>assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>Login | SIUKI BBWS Bengawan Solo</title>
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/matriz1/'); ?>dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,8 +41,8 @@
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
-                    <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="<?= base_url('assets/matriz1/'); ?>assets/images/logo.png" alt="logo" /></span>
+                    <div class="text-center p-t-10 p-b-10">
+                        <span class="db text-white" style="font-size:30px;">SIUKI BBWS</span>
                     </div>
                     <!-- Form -->
 

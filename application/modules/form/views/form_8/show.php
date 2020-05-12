@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Detail Form 8</h4>
+         
         <div class="flashdata" data-flashtitle="Form 8" data-flashmessage="<?= $this->session->flashdata('message'); ?>" data-flashtype="<?= $this->session->flashdata('type'); ?>"></div>
         <?php if ($role == 'PPK' && $is_done == 0) : ?>
             <a href="<?= site_url('detail_form_8/create/' . $id_form_8); ?>" class="btn btn-info mb-3"><i class="fas fa-plus-circle"></i> Input Risiko</a>
@@ -60,6 +61,10 @@
             </table>
         </div>
         <div class="row mt-3">
+        <?php if($this->session->userdata('role') == 'Admin' || $this->session->userdata('role') == 'PPK'):?>
+        <a href="<?= site_url('export/excel/index/').$id_form_8;?>"><button class="btn btn-success mb-3 ml-2"><i class="mdi mdi-download"></i> Download as excel file</button></a>
+        <a href="<?= site_url('export/pdf/index/').$id_form_8;?>" target="_blank"><button class="btn btn-danger mb-3 ml-2"><i class="mdi mdi-download"></i> Download as pdf file</button></a>
+        <?php endif;?>   
             <div class="col-lg-2">
                 <?php if ($role == 'PPK' && $is_done == 0) : ?>
                     <a href="<?= site_url('form_8/done/' . $id_form_8) ?>" class="btn btn-success"><i class="fas fa-save"></i> Selesai</a>

@@ -34,7 +34,7 @@ class Form_8_model extends CI_Model
         }
         $this->db->select($this->table . '.date_created, nama_ppk, is_done, status, id_form_8');
         $this->db->join('ppk', $this->table . '.id_ppk=ppk.id_ppk');
-        //$this->db->order_by($this->primary_key, $this->order);
+        // $this->db->order_by($this->primary_key, $this->order);
         $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }

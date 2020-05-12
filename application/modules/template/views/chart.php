@@ -33,6 +33,10 @@
           ]
         },
         options: {
+          animation: {
+            duration:2000,
+            easing:'easeInOutCubic'
+          },
           maintainAspectRatio: false,
           responsive: true,
           cutoutPercentage: 55,
@@ -41,7 +45,7 @@
             animateRotate: true
           },
           legend: {
-            display: true
+            display: false
           },
           tooltips: {
             titleFontFamily: "Poppins",

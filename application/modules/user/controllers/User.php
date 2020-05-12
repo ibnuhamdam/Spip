@@ -71,7 +71,7 @@ class User extends MX_Controller
         $user = $this->um->find($id_user);
         if ($user) {
             $this->um->off($id_user);
-            $this->session->set_flashdata(['type' => 'success', 'message' => 'Diaktifkan!']);
+            $this->session->set_flashdata(['type' => 'success', 'message' => 'Di Nonaktifkan!']);
             redirect('user');
         }
     }

@@ -47,11 +47,11 @@
                     
                     <div class="row">
 
-                        <div class="col-md-3 text-right">
+                        <div class="col-md-3 text-md-right">
                             <h3>Dampak</h3>
                         </div>
                         <div class="col-md-6">
-                            <canvas id="scatterChart" width="40px" height="40px"></canvas>
+                            <canvas id="scatterChart" width="200px" height="200px"></canvas>
                         </div>
                     </div>
                     
@@ -79,6 +79,9 @@
 <script>
         
         var ctx = document.getElementById('scatterChart');
+        
+       
+
         ctx.style.background = 'rgb(208,11,11)';
         ctx.style.background = 'linear-gradient(180deg, rgba(208,11,11,0.8) 0%, rgba(61,182,65,0.8) 53%, rgba(0,212,255,0.8) 100%)';
         var scatterChart = new Chart(ctx, {
@@ -88,24 +91,34 @@
                     label: 'Peta Resiko',
                     pointStyle: 'circle',
                     data: [
-                        <?php foreach ($detail_data as $d) :?>
+                        <?php 
+                        $x = array();
+                        $y = array();   
+                        foreach ($detail_data as $d) :?>
                         <?php
                         $jml_skor_risiko = 0;
                         foreach ($d['skor_risiko'] as $r) {
                             $jml_skor_risiko = $jml_skor_risiko + $r;
                         }
+                        array_push($x,round($jml_skor_risiko/$responden));
                         ?>
                     {
-                        x: <?= round($jml_skor_risiko/$responden)?>,
+                        x: <?= round($jml_skor_risiko/$responden);?>,
                         <?php 
                         $jml_skor_dampak = 0;
                         foreach ($d['skor_dampak'] as $dp) {
                             $jml_skor_dampak = $jml_skor_dampak + $dp;
                         }
+                        array_push($y,round($jml_skor_dampak/$responden));
                         ?>
-                        y: <?= round($jml_skor_dampak/$responden)?>
+                        y: <?= round($jml_skor_dampak/$responden);?>
                     },
-                        <?php endforeach;?>
+                        <?php endforeach;
+                        $max1 = max($x);
+                        $min1 = min($x);
+                        $max2 = max($y);
+                        $min2 = min($y);
+                        ?>
                    
                     ],
                     backgroundColor: [
@@ -128,7 +141,36 @@
                             '12',
                         <?php endforeach;?>
                     ]
-                }]
+                },{
+                        label: 'Line Dataset',
+                        data: [{
+                            x:0,
+                            y:<?= $max2/2;?>
+                        },{
+                            x:<?= $max1;?>+1,
+                            y:<?= $max2/2;?>
+                        }],
+                        borderColor: 'rgba(255, 255, 255,0.4)',
+                        backgroundColor: 'rgba(255, 255, 255,0)',
+
+                        // Changes this dataset to become a line
+                        type: 'line',
+                        order: 1
+                    },{
+                        label: 'Line Dataset2',
+                        data: [{
+                            x:<?= ($max1+1)/2;?>,
+                            y:0
+                        },{
+                            x:<?= ($max1+1)/2;?>,
+                            y:<?= $max2;?>
+                        }],
+                        borderColor: 'rgba(255, 255, 255,0.4)',
+
+                        // Changes this dataset to become a line
+                        type: 'line',
+                        order: 2
+                    }]
             },
             options: {
                 legend: {
@@ -144,6 +186,11 @@
                 },
                 scales: {
                     xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            suggestedMax: 4,
+                            stepSize: 1
+                        },
                         type: 'linear',
                         position: 'bottom'
                     }],
@@ -151,7 +198,8 @@
                         ticks: {
                             beginAtZero: true,
                             fontFamily: "Poppins",
-                            fontSize: 12
+                            fontSize: 12,
+                            stepSize: 1
                         }
                     }]
                 },

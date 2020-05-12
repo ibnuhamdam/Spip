@@ -13,6 +13,8 @@
                     <!-- Data Master -->
                     <h6 class="mt-3 ml-3 text-white">Data Master</h6>
                     <li class="sidebar-item <?= $hal == 'user' ? 'selected' : ''; ?>"> <a class="sidebar-link waves-effect waves-dark sidebar-link <?= $hal == 'user' ? 'active' : ''; ?>" href="<?= site_url('user'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">User</span></a></li>
+
+                    <li class="sidebar-item <?= $hal == 'satker' ? 'selected' : ''; ?>"> <a class="sidebar-link waves-effect waves-dark sidebar-link <?= $hal == 'satker' ? 'active' : ''; ?>" href="<?= site_url('satker'); ?>" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Satker Balai</span></a></li>
                     
                     <li class="sidebar-item <?= ($hal == 'ppk' or $hal == 'detail_ppk') ? 'selected' : ''; ?>"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-google-circles-extended"></i><span class="hide-menu">Manajemen PPK </span></a>
                         <ul aria-expanded="false" class="collapse  first-level">

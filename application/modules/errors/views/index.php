@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/matriz1/'); ?>assets/images/favicon.png">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>SIUKI | BBWS BENGAWAN SOLO</title>
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/matriz1/'); ?>dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,7 +43,7 @@
                 <h1 class="error-title text-danger"><?= $error_code; ?></h1>
                 <h3 class="text-uppercase error-subtitle">PAGE NOT FOUND !</h3>
                 <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
-                <a href="index.html" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a>
+                <a href="<?= site_url('dashboard');?>" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a>
             </div>
         </div>
         <!-- ============================================================== -->

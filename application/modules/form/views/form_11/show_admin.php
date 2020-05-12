@@ -62,6 +62,8 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <a href="<?= site_url('export/excel/form_11/').$id_form_8;?>"><button class="btn btn-success mb-3 ml-2"><i class="mdi mdi-download"></i> Download as excel file</button></a>
+            <a href="<?= site_url('export/pdf/form_11/').$id_form_8;?>" target="_blank"><button class="btn btn-danger mb-3 ml-2"><i class="mdi mdi-download"></i> Download as pdf file</button></a>
         </div>
     </div>
 </div>
