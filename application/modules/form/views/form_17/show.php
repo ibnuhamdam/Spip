@@ -46,6 +46,8 @@
                 </tbody>
             </table>
         </div>
+        <a href="<?= site_url('export/excel/form_17/').$id_form_17;?>" target="_blank"><button class="btn btn-success mb-3 ml-2"><i class="mdi mdi-download"></i> Download as excel file</button></a>
+        <a href="<?= site_url('export/pdf/form_17/').$id_form_17;?>" target="_blank"><button class="btn btn-danger mb-3 ml-2"><i class="mdi mdi-download"></i> Download as pdf file</button></a>
         <div class="row mt-3">
             <div class="col-lg-2">
                 <?php if ($is_done == 0) : ?>

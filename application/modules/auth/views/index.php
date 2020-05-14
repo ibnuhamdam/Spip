@@ -42,6 +42,7 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center p-t-10 p-b-10">
+                        <img src="<?= base_url('assets/images/');?>alpha-s-box.png" class="img-top mb-3 bg-whitetext-white" width="50" height="50" alt="">
                         <span class="db text-white" style="font-size:30px;">SIUKI BBWS</span>
                     </div>
                     <!-- Form -->

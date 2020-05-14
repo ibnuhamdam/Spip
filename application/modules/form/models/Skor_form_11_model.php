@@ -112,4 +112,19 @@ class Skor_form_11_model extends CI_Model
         $this->db->join('tahap_kegiatan', 'detail_form_8.id_tahap_kegiatan=tahap_kegiatan.id_tahap_kegiatan');
         return $this->db->get('detail_form_8');
     }
+
+    public function get_skors22($id_form_8, $role = '')
+    {
+        // $this->db->select('detail_form_22'. '.id_pernyataan, skor_risiko, skor_dampak, pernyataan_risiko, pemilik_risiko, ');
+        if ($role == 'UKI') {
+            $this->db->where('id_user', $this->id_user);
+        }
+        $this->db->where('id_form_22', $id_form_8);
+        $this->db->order_by('detail_form_22.id_pernyataan', $this->order);
+        $this->db->join($this->table, $this->table . '.id_pernyataan=detail_form_22.id_pernyataan', 'left');
+        $this->db->join('detail_form_17', 'detail_form_22.id_pernyataan=detail_form_17.id_pernyataan');
+        $this->db->join('detail_form_14', 'detail_form_22.id_pernyataan=detail_form_14.id_pernyataan');
+        $this->db->join('detail_form_8', 'detail_form_22.id_pernyataan=detail_form_8.id_pernyataan');
+        return $this->db->get('detail_form_22');
+    }
 }

@@ -16,6 +16,8 @@ class Detail_form_22_model extends CI_Model
     {
         $this->db->order_by('detail_form_8.id_pernyataan', $this->order);
         $this->db->join('detail_form_8', $this->table . '.id_pernyataan=detail_form_8.id_pernyataan', 'right');
+        $this->db->join('detail_form_17', $this->table . '.id_pernyataan=detail_form_17.id_pernyataan');
+        $this->db->join('detail_form_14', $this->table . '.id_pernyataan=detail_form_14.id_pernyataan');
         return $this->db->get_where($this->table, ['detail_form_8.id_form_8' => $id_form_8])->result();
     }
 

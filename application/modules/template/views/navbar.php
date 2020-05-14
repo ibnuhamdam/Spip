@@ -12,10 +12,10 @@
                 <!-- ============================================================== -->
                 <a class="navbar-brand" href="<?= site_url('dashboard');?>">
                     <!-- Logo icon -->
-                    <b class="logo-icon p-l-10">
+                    <b class="logo-icon p-l-2">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
-                        <i class="mdi mdi-home" style="font-size:30px;"></i>
+                        <img src="<?= base_url('assets/images/');?>alpha-s-box.png" class="img-top mb-1" width="40" height="40" alt="">
 
                     </b>
                     <!--End Logo icon -->
